@@ -1,2 +1,0 @@
-1/ Quand j'envois au serveur Hello il me rejète directement
- comment faire pour connecter un client au serveur avant que le jeux commence ?
