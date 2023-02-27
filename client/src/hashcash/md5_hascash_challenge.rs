@@ -1,6 +1,6 @@
 use rayon::in_place_scope;
-use crate::data_structures::{ChallengeTrait, MD5HashCashInput, MD5HashCashOutput};
-use crate::utils::{count_zero_bits, generated_md5_from_string};
+use shared::data_structures::{ChallengeTrait, MD5HashCashInput, MD5HashCashOutput};
+use shared::utils::{generated_md5_from_string, get_value_index, count_zero_bits};
 
 
 pub struct Md5Challenge {

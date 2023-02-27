@@ -8,22 +8,17 @@ pub mod recover_secret;
 pub mod hashcash;
 mod recover_secret_test;
 mod md5_hashcash_test;
-mod app;
-pub mod utils;
-mod data_structures;
-mod broadcasters;
 
 
-use data_structures::{
+use shared::data_structures::{
     ChallengeAnswer, ChallengeResult, ChallengeTrait, Message, PublicLeaderBoard,
     Subscribe,
 };
 use hashcash::md5_hascash_challenge::Md5Challenge;
 use std::env;
-use crate::data_structures::Challenge::MD5HashCash;
-use crate::data_structures::ChallengeAnswer::RecoverSecret;
 use recover_secret::recover_secret_challenge::{RecoverSecretChallenge};
-use crate::data_structures::{Challenge, RecoverSecretInput, RecoverSecretOutput};
+use shared::broadcasters;
+use shared::data_structures::{Challenge, RecoverSecretInput, RecoverSecretOutput};
 
 fn main() {
     // recover_secret_main();
@@ -119,24 +114,4 @@ fn get_next_target(leaderboard: &PublicLeaderBoard, player_name: &String) -> Str
         Some(player) => player.name.clone(),
         None => return String::new(),
     };
-}
-
-fn recover_secret_main(){
-    let first_test_word = "C'est chou";
-    let recover_secret_output = RecoverSecretOutput{
-        secret_sentence: first_test_word.to_string()
-    };
-
-    let recover_secret_input = RecoverSecretInput {
-        word_count: 2,
-        letters: "t cCehuCethoCeschouC'schout h".to_string(),
-        tuple_sizes: Vec::from([3, 4, 5, 7, 7, 3])
-    };
-
-    let challenge_recover_secret = RecoverSecretChallenge::new(recover_secret_input);
-
-    let status = challenge_recover_secret.verify(&recover_secret_output);
-    let out = challenge_recover_secret.solve();
-    // println!("{}", out.secret_sentence);
-    println!("{}", status);
 }

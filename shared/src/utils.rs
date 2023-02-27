@@ -3,7 +3,7 @@ use std::borrow::Borrow;
 use data_encoding::BASE64;
 use rand::{RngCore, thread_rng};
 
-pub(crate) fn count_zero_bits(hash: &str, complexity: u32) -> u32 {
+pub fn count_zero_bits(hash: &str, complexity: u32) -> u32 {
     let bytes = hex::decode(hash).unwrap();
     let mut num_leading_zero_bits = 0;
     for byte in &bytes {

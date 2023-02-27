@@ -1,5 +1,5 @@
-use crate::data_structures::{ChallengeTrait, RecoverSecretInput, RecoverSecretOutput};
-use crate::utils::{get_value_index, pattern_word};
+use shared::data_structures::{ChallengeTrait, RecoverSecretInput, RecoverSecretOutput};
+use shared::utils::{get_value_index, pattern_word};
 
 
 pub struct RecoverSecretChallenge {
