@@ -1,7 +1,7 @@
 #[cfg(test)]
 mod tests {
-    use crate::data_structures::{RecoverSecretInput, RecoverSecretOutput};
-    use crate::recover_secret::recover_secret_challenge::{Challenge, RecoverSecretChallenge};
+    use crate::data_structures::{ChallengeTrait, RecoverSecretInput, RecoverSecretOutput};
+    use crate::recover_secret::recover_secret_challenge::{RecoverSecretChallenge};
     use crate::utils::get_value_index;
 
     #[test]

@@ -1,26 +1,12 @@
-use crate::data_structures::{RecoverSecretInput, RecoverSecretOutput};
+use crate::data_structures::{ChallengeTrait, RecoverSecretInput, RecoverSecretOutput};
 use crate::utils::{get_value_index, pattern_word};
 
-pub trait Challenge {
-    /// Data input of the challenge
-    type Input;
-    /// Data output of the challenge
-    type Output;
-    /// Name of the challenge
-    fn name() -> String;
-    /// Create a challenge from the specific input
-    fn new(input: Self::Input) -> Self;
-    /// Resolve le challenge
-    fn solve(&self) -> Self::Output;
-    /// Vérifie qu'une sortie est valide pour le challenge
-    fn verify(&self, answer: &Self::Output) -> bool;
-}
 
 pub struct RecoverSecretChallenge {
     pub input: RecoverSecretInput
 }
 
-impl Challenge for RecoverSecretChallenge{
+impl ChallengeTrait for RecoverSecretChallenge{
     /// Data input of the challenge
     type Input = RecoverSecretInput;
     /// Data output of the challenge

@@ -1,27 +1,13 @@
 use rayon::in_place_scope;
-use crate::data_structures::{MD5HashCashInput, MD5HashCashOutput};
+use crate::data_structures::{ChallengeTrait, MD5HashCashInput, MD5HashCashOutput};
 use crate::utils::{count_zero_bits, generated_md5_from_string};
 
-pub trait Challenge {
-    /// Data input of the challenge
-    type Input;
-    /// Data output of the challenge
-    type Output;
-    /// Name of the challenge
-    fn name() -> String;
-    /// Create a challenge from the specific input
-    fn new(input: Self::Input) -> Self;
-    /// Resolve le challenge
-    fn solve(&self) -> Self::Output;
-    /// Vérifie qu'une sortie est valide pour le challenge
-    fn verify(&self, answer: &Self::Output) -> bool;
-}
 
 pub struct Md5Challenge {
     pub input: MD5HashCashInput
 }
 
-impl Challenge for Md5Challenge {
+impl ChallengeTrait for Md5Challenge {
     /// Data input of the challenge
     type Input = MD5HashCashInput;
     /// Data output of the challenge

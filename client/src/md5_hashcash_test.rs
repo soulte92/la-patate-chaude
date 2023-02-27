@@ -1,8 +1,8 @@
 
 #[cfg(test)]
 mod tests {
-    use crate::data_structures::{MD5HashCashInput, MD5HashCashOutput};
-    use crate::hashcash::md5_hascash_challenge::{Challenge, Md5Challenge};
+    use crate::data_structures::{ChallengeTrait, MD5HashCashInput, MD5HashCashOutput};
+    use crate::hashcash::md5_hascash_challenge::{Md5Challenge};
 
 
     #[test]
