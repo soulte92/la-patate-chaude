@@ -1,12 +1,13 @@
-mod recover_secret;
-// TODO To fix
 #[cfg(test)]
 mod tests {
+    use crate::recover_secret::data_structures::{RecoverSecretInput, RecoverSecretOutput};
+    use crate::recover_secret::recover_secret_challenge::{Challenge, RecoverSecretChallenge};
+    use crate::recover_secret::utils::get_value_index;
 
     #[test]
     fn should_validate_secret_sentence() {
         // First test
-        let first_test_output = RecoverSecretOutput{
+        let first_test_output = RecoverSecretOutput {
             secret_sentence: "C'est chou".to_string()
         };
 
@@ -20,7 +21,7 @@ mod tests {
         assert!(challenge_recover_secret.verify(&first_test_output));
 
         // Second test
-        let second_test_output = RecoverSecretOutput{
+        let second_test_output = RecoverSecretOutput {
             secret_sentence: "xWRvraj4fonTUmzyO25wA3lBeiM9H".to_string()
         };
         let second_test_input = RecoverSecretInput {
@@ -35,7 +36,7 @@ mod tests {
     #[test]
     fn should_not_validate_secret_sentence() {
         // First test
-        let first_test_output = RecoverSecretOutput{
+        let first_test_output = RecoverSecretOutput {
             secret_sentence: "C'est chou".to_string()
         };
         let first_test_input = RecoverSecretInput {
@@ -48,7 +49,7 @@ mod tests {
         assert!(challenge_recover_secret.verify(&first_test_output));
 
         // Second test
-        let second_test_output = RecoverSecretOutput{
+        let second_test_output = RecoverSecretOutput {
             secret_sentence: "xWRvraj4fonTUmzyO25wA3lBeiM9H".to_string()
         };
         let second_test_input = RecoverSecretInput {
@@ -61,20 +62,20 @@ mod tests {
     }
 
     #[test]
-    fn should_return_good_index_position(){
+    fn should_return_good_index_position() {
         assert_eq!(get_value_index("Hello!".to_string(), "l".to_string()), 2);
         assert_eq!(get_value_index("Hello!".to_string(), "H".to_string()), 0);
         assert_eq!(get_value_index("Hello!".to_string(), "o".to_string()), 4);
     }
 
     #[test]
-    fn should_not_return_good_index_position(){
+    fn should_not_return_good_index_position() {
         assert_eq!(get_value_index("Hello!".to_string(), "j".to_string()), -1);
         assert_eq!(get_value_index("Hello!".to_string(), "1".to_string()), -1);
     }
 
     #[test]
-    fn should_generate_good_output1(){
+    fn should_generate_good_output1() {
         let test_input = RecoverSecretInput {
             word_count: 2,
             letters: "t cCehuCethoCeschouC'schout h".to_string(),
@@ -88,7 +89,7 @@ mod tests {
     }
 
     #[test]
-    fn should_generate_good_output2(){
+    fn should_generate_good_output2() {
         let test_input = RecoverSecretInput {
             word_count: 1,
             letters: "WvyOAlxafUzleiSOl9xayBeHTmy9xWTU5lMW4nUO5lMWRajn2BiHSRUzy5afnUz5wlexWrm5wlBWr4mAlBrUmzHxTUzwlHrfTwBeSRmzlMSRfoUOAe9S4oUiraOiramzM5w3l".to_string(),

@@ -1,5 +1,5 @@
-use  recover_secret::utils::{pattern_word, get_value_index, is_sorted};
-use ::{RecoverSecretInput, RecoverSecretOutput};
+use crate::recover_secret::utils::{pattern_word, get_value_index, is_sorted};
+use crate::recover_secret::data_structures::{RecoverSecretInput, RecoverSecretOutput};
 
 pub trait Challenge {
     /// Data input of the challenge

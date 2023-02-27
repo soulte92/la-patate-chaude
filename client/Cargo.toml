@@ -1,15 +1,9 @@
 [package]
-name = "la-patate-chaude"
-version = "0.1.0"
-authors = ["@soulte92", "@sarah-bouadi", "@cawa-dev"]
-
-[[bin]]
 name = "client"
-path = "src/main.rs"
+version = "0.1.0"
+edition = "2021"
 
-[[test]]
-name = "test"
-path = "tests/recover_secret/test_recover_secret.rs"
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
 serde = { version = "1.0", features = ["derive"] }

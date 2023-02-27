@@ -1,7 +1,6 @@
 use rayon::in_place_scope;
-use ::{MD5HashCashInput};
-use hashcash::utils::{count_zero_bits, generated_md5_from_string};
-use MD5HashCashOutput;
+use crate::hashcash::data_structures::{MD5HashCashInput, MD5HashCashOutput};
+use crate::hashcash::utils::{count_zero_bits, generated_md5_from_string};
 
 pub trait Challenge {
     /// Data input of the challenge
