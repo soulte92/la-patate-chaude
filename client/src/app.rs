@@ -9,7 +9,7 @@ use std::convert::{TryFrom, TryInto};
 use data_encoding::BASE64;
 use md5::Digest;
 use rand::{RngCore, thread_rng};
-use crate::hashcash::data_structures::MD5HashCashInput;
+use crate::data_structures::MD5HashCashInput;
 use crate::hashcash::md5_hascash_challenge::{Challenge, Md5Challenge};
 
 

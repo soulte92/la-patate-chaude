@@ -9,9 +9,11 @@ pub mod hashcash;
 mod recover_secret_test;
 mod md5_hashcash_test;
 mod app;
+pub mod utils;
+mod data_structures;
 
-use recover_secret::data_structures::{RecoverSecretInput, RecoverSecretOutput};
 use recover_secret::recover_secret_challenge::{Challenge, RecoverSecretChallenge};
+use crate::data_structures::{RecoverSecretInput, RecoverSecretOutput};
 
 fn main() {
     recover_secret_main()

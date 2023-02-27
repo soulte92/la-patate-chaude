@@ -1,8 +1,8 @@
 #[cfg(test)]
 mod tests {
-    use crate::recover_secret::data_structures::{RecoverSecretInput, RecoverSecretOutput};
+    use crate::data_structures::{RecoverSecretInput, RecoverSecretOutput};
     use crate::recover_secret::recover_secret_challenge::{Challenge, RecoverSecretChallenge};
-    use crate::recover_secret::utils::get_value_index;
+    use crate::utils::get_value_index;
 
     #[test]
     fn should_validate_secret_sentence() {
